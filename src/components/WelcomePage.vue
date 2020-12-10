@@ -15,13 +15,13 @@
                    <li class="each-list">There are 2 categories and a total of 20 questions to be 
                        answered. Please do not click submit or end test unless you are sure of submitting.
                     </li>
-                    <li class="each-list">Your examination ID is <span style="color: #8A4B95">MSQ100L20</span></li>
+                    <li class="each-list">Your examination ID is <span style="color: #8A4B95">{{matricNo}}</span></li>
                     <li class="each-list">Any form of malpractice would render your test nullified, stick to the rules. GOOD LUCK !</li>
-                    <li class="each-list">Exam duration :: <span style="font-weight: 600">35 minutes</span></li>
+                    <li class="each-list">Exam duration :: <span style="font-weight: 600">20 minutes</span></li>
                </ul>
            </div>
-            <input type="text" class="login-input" placeholder="Enter matric number" required>
-            <input type="text" class="login-input" placeholder="Enter exam ID e.g MSQ100L20" required>
+            <input type="text" class="login-input" v-model="name" placeholder="Enter name" required>
+            <input type="text" class="login-input" v-model="matricNo" placeholder="Enter matric No e.g MSQ100L20" required>
             <p class="start-button" @click="navigate">Start Test</p>
         </div>  
     </intro>
@@ -30,6 +30,7 @@
 <script>
 import Intro from './reusable/Intro'
 import boardView from './reusable/boardView'
+import {bus} from '../main'
 export default {
     components: {
         "intro": Intro,
@@ -37,13 +38,21 @@ export default {
     },
     data(){
         return{
-            instruction: false
+            instruction: false,
+            name: "",
+            matricNo: ""
+
         }
     },
     methods: {
         navigate: function(){
             if(this.instruction === true){
-                this.$router.push("instruction")
+                if(this.name){
+                    this.$router.push(`instruction/${this.name}`)
+                }
+                else{
+                    this.$router.push(`instruction/Anonymous`)
+                }
                 this.instruction = false
             }
             else{

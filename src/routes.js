@@ -4,6 +4,6 @@ import Congrats from "./components/CongratPage"
 
 export default [
     {path: "/", component: WelcomePage},
-    {path: "/instruction", component: Quiz},
-    {path: "/congrats/:score", component: Congrats}
+    {path: "/instruction/:username", component: Quiz},
+    {path: "/congrats/:username/:score/:time/:answered", component: Congrats}
 ]
