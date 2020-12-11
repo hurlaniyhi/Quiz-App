@@ -32,6 +32,9 @@ export default {
            username: this.$route.params.username
         }
     },
+    created(){
+        localStorage.clear()
+    },
     methods: {
         close: function(){
             this.$router.push("/")

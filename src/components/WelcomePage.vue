@@ -47,13 +47,17 @@ export default {
     methods: {
         navigate: function(){
             if(this.instruction === true){
+                this.instruction = false
+
                 if(this.name){
+                    localStorage.setItem("token1", "Rid12345")
                     this.$router.push(`instruction/${this.name}`)
                 }
                 else{
-                    this.$router.push(`instruction/Anonymous`)
+                    this.$refs.cancelled.style.display = "none"
+                    alert("Kindly enter your name")
+                    //this.$router.push(`instruction/Anonymous`)
                 }
-                this.instruction = false
             }
             else{
                 this.$refs.cancelled.style.display = "block"

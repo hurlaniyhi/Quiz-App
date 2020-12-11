@@ -29,12 +29,22 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 700px){
+       //display: block;
+    }
 }
 .board-user{
     width: 17rem;
     display: block;
     margin: 0 auto;
     margin-bottom: 6.5rem;
+    
+    @media (max-width: 700px){
+        margin-top: 12rem;
+        margin-bottom: 1rem;
+        width: 12rem;
+    }
 }
 .faculty{
     font-family: sans-serif;
@@ -45,6 +55,10 @@ export default {
     text-align: center;
     color: #FFFFFF;
     padding-bottom: 2.5rem;
+
+    @media (max-width: 700px){
+        padding: 0 2rem;
+    }
 }
 .topic-button{
   
@@ -58,12 +72,19 @@ export default {
     text-align: center;
     color: #FFD731;
     margin-bottom: 3rem;
+
+     @media (max-width: 700px){
+        padding: 0;
+        margin: 0;
+        //background: none;
+    }
 }
 .shape7{
     width: 1.2rem;
     position: absolute;
     bottom: 2.5rem;
-    right: .2rem
+    right: .2rem;
+    display: none
 }
 .shape8{
     width: 3.5rem;

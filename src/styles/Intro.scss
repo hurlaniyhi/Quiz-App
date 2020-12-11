@@ -52,13 +52,24 @@
     box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.15);
     border-radius: 3rem;
     overflow: hidden;
+
+    @media (max-width: 700px){
+        flex-direction: column;
+        align-items: center;
+    }
     
 
     .board{
         padding: 3rem 2.5rem;
         background: linear-gradient(348.45deg, #91519D 43.67%, #71397C 99.45%);
         width: 27%;
-        border-radius: 3rem;  
+        border-radius: 3rem;
+        
+        @media (max-width: 700px){
+            // display: flex;
+            // flex-direction: row;
+            width: 100%;
+        }
     }
     .content{
         width: 73%;

@@ -28,19 +28,19 @@
             
             <p class="question-box">{{currentQuestion.question}}</p>
             <div class="option-box">
-                <button  v-bind:class="{eachOption: true, first: first}"  @click="verifyAnswer(currentQuestion.options.a, 'a')" ref="first">
+                <button  v-bind:class="{eachOption: true, first: first}"  @click="verifyAnswer(currentQuestion.options.a, 'a')">
                     <p class="option-icon"></p>
                     {{currentQuestion.options.a}}
                 </button>
-                <button v-bind:class="{eachOption: true, second: second}" @click="verifyAnswer(currentQuestion.options.b, 'b')" ref="second">
+                <button v-bind:class="{eachOption: true, second: second}" @click="verifyAnswer(currentQuestion.options.b, 'b')">
                     <p class="option-icon"></p>
                     {{currentQuestion.options.b}}
                 </button>
-                <button v-bind:class="{eachOption: true, third: third}" @click="verifyAnswer(currentQuestion.options.c, 'c')" ref="third">
+                <button v-bind:class="{eachOption: true, third: third}" @click="verifyAnswer(currentQuestion.options.c, 'c')">
                     <p class="option-icon"></p>
                     {{currentQuestion.options.c}}
                 </button>
-                <button v-bind:class="{eachOption: true, fourth: fourth}" @click="verifyAnswer(currentQuestion.options.d, 'd')" ref="fourth">
+                <button v-bind:class="{eachOption: true, fourth: fourth}" @click="verifyAnswer(currentQuestion.options.d, 'd')">
                     <p class="option-icon"></p>
                     {{currentQuestion.options.d}}
                 </button>
@@ -131,6 +131,7 @@ export default {
         },
         end: function(){
             clearInterval(this.timer)
+            localStorage.setItem("token2", "ridwan1234")
             var answered = answeredQuestions(this.userQuestions)
             var userScore = Math.trunc((this.score/200) * 100)
             var timeSpent = 20 - this.timeLeft
@@ -210,6 +211,9 @@ export default {
         },
        
     },
+    destroyed(){
+        localStorage.setItem("token1", "")
+    }
   
 }
 </script>
