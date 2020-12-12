@@ -17,4 +17,4 @@ export const mainQuestions = () => {
     }
     
     return questions
-}
+} 
